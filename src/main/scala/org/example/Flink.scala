@@ -30,16 +30,16 @@ object Flink {
   def main(args: Array[String]): Unit = {
     val settings = EnvironmentSettings
             .newInstance()
-            .inStreamingMode()
-            //.inBatchMode()
+//            .inStreamingMode()
+            .inBatchMode()
             .build()
     val tableEnv = TableEnvironment.create(settings)
-    tableEnv.createTable("t5", TableDescriptor.forConnector("hudi")
+    tableEnv.createTable("t6", TableDescriptor.forConnector("hudi")
             .schema(Schema.newBuilder()
                     .column("order_id", DataTypes.INT().notNull())
                     .column("order_date", DataTypes.TIMESTAMP(3))
 
-                    .column("customer_name", DataTypes.INT())
+                    .column("customer_name", DataTypes.STRING())
 
                     .column("price", DataTypes.DECIMAL(10, 5))
 
@@ -50,14 +50,15 @@ object Flink {
                     .build()
             )
             .partitionedBy("order_status")
-            .option("path", "oss://gakef/t5")
+            .option("path", "oss://gakef/t6")
             .option("table.type", "MERGE_ON_READ")
-            .option("read.streaming.enabled", "true")
-            .option("read.start-commit", "20210316134557")
+//            .option("read.streaming.enabled", "false")
+//            .option("read.start-commit", "20210316134557")
             .option("read.streaming.check-interval", "4")
             .build())
-    var t5 = tableEnv.from("t5");
-    val result: TableResult = t5.fetch(2).execute()
+    var t5 = tableEnv.from("t6");
+//    tableEnv.executeSql("INSERT INTO t6 values(100518, TIMESTAMP '3027-09-09 00:00:00', '康熙', 10.09, 132, TRUE)")
+    val result: TableResult = t5.fetch(5).execute()
     result.print()
 
   }

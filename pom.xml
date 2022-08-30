@@ -52,6 +52,33 @@ under the License.
 	</repositories>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>3.3.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>3.3.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aliyun -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-aliyun</artifactId>
+			<version>3.3.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+		<dependency>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>3.13.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -73,6 +100,13 @@ under the License.
 			<artifactId>flink-runtime-web</artifactId>
 			<version>${flink.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.hudi/hudi-flink -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.hudi</groupId>-->
+<!--			<artifactId>hudi-flink_2.12</artifactId>-->
+<!--			<version>0.10.1</version>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.apache.hudi/hudi-flink -->
 		<dependency>
 			<groupId>org.apache.hudi</groupId>
 			<artifactId>hudi-flink1.15-bundle</artifactId>
